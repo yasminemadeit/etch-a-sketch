@@ -1,9 +1,20 @@
 const mainContainer = document.querySelector("#main-container");
-const containerWidth = 960;
-const containerHeight = 960;
+const containerWidth = 600;
+const containerHeight = 600;
 const btn = document.querySelector("#btn");
 
 let userInput;
+
+function changeColor(){
+    const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+        const r = randomBetween(0, 255);
+        const g = randomBetween(0, 255);
+        const b = randomBetween(0, 255);
+        const rgb = `rgb(${r},${g},${b})`; 
+
+        return rgb;
+
+}
 
 btn.addEventListener("click", function(){
     do {
@@ -16,9 +27,24 @@ btn.addEventListener("click", function(){
 
 
 });
+// mainContainer.addEventListener("mouseenter", function (e){
+//     if (e.target!==mainContainer){
+//         const cell = e.target;
+//         cell.style.background = "black";
+//        // cell.style.opacity= Number(this.style.opacity) + 0.1;
+//     }
+// });
+
+// function handleMouseEnter(e){
+//     const cell = e.target;
+//     cell.style.backgroundColor = 'grey';
+//     this.style.opacity= Number(this.style.opacity) + 0.1;
+// }
 
 
 function newGrid(gridSize){
+
+   
 
 
    
@@ -30,31 +56,27 @@ function newGrid(gridSize){
     let relativeHeight =  (containerHeight/gridSize) + "px";
 
     //Create Grid
-    for (let i = 0; i < gridSize; i++){
-        for (let j=0; j<gridSize; j++){
+    for (let i = 0; i < gridSize*gridSize; i++){
         let gridDiv = document.createElement("div");
-        gridDiv.id = "div-" + i + "-" + j;
-        gridDiv.style.background = "grey";
-        gridDiv.style.border = "solid,black,1px";
+        gridDiv.id = "div-" + i;
+        gridDiv.style.background = "white";
+        gridDiv.style.border = "solid black 1px";
         gridDiv.style.height = relativeHeight;
         gridDiv.style.width = relativeWidth;
         gridDiv.style.boxSizing = "border-box";
-        gridDiv.style.opacity= 0.1;
-        const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-        const r = randomBetween(0, 255);
-        const g = randomBetween(0, 255);
-        const b = randomBetween(0, 255);
-        const rgb = `rgb(${r},${g},${b})`; 
+        
 
-        gridDiv.addEventListener("mouseover", function(){
-            this.style.background = rgb;
-            this.style.opacity= Number(this.style.opacity) + 0.1;
+        gridDiv.addEventListener("mouseenter", function(){
+            this.style.background = changeColor();
+            //this.style.opacity= Number(this.style.opacity) + 0.1;
         });
+
+       // gridDiv.addEventListener("mouseenter", handleMouseEnter);
 
 
 
         mainContainer.appendChild(gridDiv);
-        }
+        
     }
 
 
