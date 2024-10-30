@@ -13,21 +13,25 @@ mainContainer.style.flexWrap = "wrap";
 let relativeWidth= containerWidth/gridWidth + "px";
 let relativeHeight =  (containerHeight/gridHeight) + "px";
 
-
+//Create Grid
 for (let i = 0; i < gridHeight; i++){
     for (let j=0; j<gridWidth; j++){
     let gridDiv = document.createElement("div");
     gridDiv.id = "div-" + i + "-" + j;
-    gridDiv.style.background = "blue";
+    gridDiv.style.background = "grey";
     gridDiv.style.border = "solid,black,1px";
     gridDiv.style.height = relativeHeight;
     gridDiv.style.width = relativeWidth;
     gridDiv.style.boxSizing = "border-box";
 
+    gridDiv.addEventListener("mouseover", function(){
+        this.style.background = "black";
+    });
+
 
     mainContainer.appendChild(gridDiv);
     }
-
-
 }
+
+
 
