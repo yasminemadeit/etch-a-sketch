@@ -39,10 +39,18 @@ function newGrid(gridSize){
         gridDiv.style.height = relativeHeight;
         gridDiv.style.width = relativeWidth;
         gridDiv.style.boxSizing = "border-box";
+        gridDiv.style.opacity= 0.1;
+        const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+        const r = randomBetween(0, 255);
+        const g = randomBetween(0, 255);
+        const b = randomBetween(0, 255);
+        const rgb = `rgb(${r},${g},${b})`; 
 
         gridDiv.addEventListener("mouseover", function(){
-            this.style.background = "black";
+            this.style.background = rgb;
+            this.style.opacity= Number(this.style.opacity) + 0.1;
         });
+
 
 
         mainContainer.appendChild(gridDiv);
