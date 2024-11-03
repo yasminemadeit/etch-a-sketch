@@ -27,19 +27,8 @@ btn.addEventListener("click", function(){
 
 
 });
-// mainContainer.addEventListener("mouseenter", function (e){
-//     if (e.target!==mainContainer){
-//         const cell = e.target;
-//         cell.style.background = "black";
-//        // cell.style.opacity= Number(this.style.opacity) + 0.1;
-//     }
-// });
 
-// function handleMouseEnter(e){
-//     const cell = e.target;
-//     cell.style.backgroundColor = 'grey';
-//     this.style.opacity= Number(this.style.opacity) + 0.1;
-// }
+
 
 
 function newGrid(gridSize){
@@ -60,7 +49,7 @@ function newGrid(gridSize){
         let gridDiv = document.createElement("div");
         gridDiv.id = "div-" + i;
         gridDiv.style.background = "white";
-        gridDiv.style.border = "solid black 1px";
+        gridDiv.style.border = "solid black 0.5px";
         gridDiv.style.height = relativeHeight;
         gridDiv.style.width = relativeWidth;
         gridDiv.style.boxSizing = "border-box";
@@ -68,10 +57,10 @@ function newGrid(gridSize){
 
         gridDiv.addEventListener("mouseenter", function(){
             this.style.background = changeColor();
-            //this.style.opacity= Number(this.style.opacity) + 0.1;
+            this.style.opacity= Number(this.style.opacity) + 0.1;
         });
 
-       // gridDiv.addEventListener("mouseenter", handleMouseEnter);
+       
 
 
 
